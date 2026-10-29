@@ -29,7 +29,14 @@
 .indic-valor span { font-size: .95rem; color: rgba(239, 232, 219, .66); }
 .indic-valor .pre { font: 400 1.4rem var(--display); color: rgba(239, 232, 219, .8); }
 .indic-sub { font-size: .9rem; color: rgba(239, 232, 219, .62); }
-.spark { display: block; width: 100%; height: 64px; margin: 1.4rem 0 .5rem; overflow: visible; }
+.spark-box { position: relative; margin: 2.6rem 0 .5rem; cursor: crosshair; touch-action: pan-y; }
+.spark { display: block; width: 100%; height: 64px; overflow: visible; }
+.spark-guia, .spark-ponto, .spark-tip { position: absolute; pointer-events: none; opacity: 0; transition: opacity .2s; }
+.spark-guia { top: -6px; bottom: -4px; width: 1px; background: rgba(226, 201, 154, .45); transform: translateX(-.5px); }
+.spark-ponto { width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: var(--noite); border: 2px solid var(--ouro-claro); }
+.spark-tip { bottom: calc(100% + 6px); transform: translateX(-50%); white-space: nowrap; padding: .4rem .65rem; border-radius: 6px; background: var(--palha); color: var(--tinta); font: 500 .74rem var(--mono); box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .6); }
+.spark-box.ativo .spark-guia, .spark-box.ativo .spark-ponto, .spark-box.ativo .spark-tip { opacity: 1; }
+.spark-box.ativo .spark .ponto { opacity: 0; }
 .spark .linha { fill: none; stroke: var(--ouro-claro); stroke-width: 1.6; vector-effect: non-scaling-stroke; }
 .spark .area { fill: url(#grad-spark); opacity: .9; }
 .spark .ponto { fill: var(--ouro-claro); }
@@ -56,6 +63,14 @@
 .cidade-topo { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; padding-bottom: 1rem; border-bottom: 1px solid rgba(226, 201, 154, .45); }
 .cidade-topo h3 { font: italic 400 clamp(2rem, 3.4vw, 2.8rem)/1.05 var(--display); color: var(--palha); }
 .chuva-total { font: 400 .76rem var(--mono); color: rgba(226, 201, 154, .75); }
+.cidade-escolha {
+  appearance: none; -webkit-appearance: none; max-width: 100%; margin: 0; padding: 0 1.6em 0 0; border: 0; border-radius: 0; cursor: pointer;
+  font: inherit; color: inherit; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23BF9967' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right center / .7em;
+  border-bottom: 1px dashed rgba(226, 201, 154, .35);
+}
+.cidade-escolha:hover { border-bottom-color: var(--ouro); }
+.cidade-escolha option { font: 400 1rem var(--texto); font-style: normal; color: var(--tinta); background: var(--palha); }
+.cidade.carregando .dias { opacity: .4; transition: opacity .2s; }
 .dias li { display: grid; grid-template-columns: 4.4rem 2.4rem minmax(0, 1fr) auto; gap: 1rem; align-items: center; padding: .95rem 0; border-bottom: 1px solid var(--fio-escuro); }
 .dia-nome { font: 500 .7rem/1.3 var(--rotulo); letter-spacing: .14em; text-transform: uppercase; color: var(--ouro); }
 .dia-nome small { display: block; font: 400 .7rem var(--mono); letter-spacing: 0; text-transform: none; color: rgba(239, 232, 219, .5); }

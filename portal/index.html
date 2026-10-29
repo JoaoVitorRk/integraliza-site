@@ -72,21 +72,21 @@
         <p class="indic-rot">Selic</p>
         <p class="indic-valor"><b data-campo="valor">13,75</b><span>% ao ano</span></p>
         <p class="indic-sub" data-campo="sub">meta definida pelo Copom</p>
-        <svg class="spark" viewBox="0 0 240 64" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="spark-box"><svg class="spark" viewBox="0 0 240 64" preserveAspectRatio="none" aria-hidden="true"></svg><i class="spark-guia" aria-hidden="true"></i><i class="spark-ponto" aria-hidden="true"></i><span class="spark-tip" role="status"></span></div>
         <p class="indic-pe" data-campo="pe">últimos 24 meses</p>
       </article>
       <article class="indic reveal d1" id="i-dolar">
         <p class="indic-rot">Dólar</p>
         <p class="indic-valor"><span class="pre">R$</span><b data-campo="valor">5,34</b></p>
         <p class="indic-sub" data-campo="sub">PTAX de venda do Banco Central</p>
-        <svg class="spark" viewBox="0 0 240 64" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="spark-box"><svg class="spark" viewBox="0 0 240 64" preserveAspectRatio="none" aria-hidden="true"></svg><i class="spark-guia" aria-hidden="true"></i><i class="spark-ponto" aria-hidden="true"></i><span class="spark-tip" role="status"></span></div>
         <p class="indic-pe" data-campo="pe">últimos 90 dias</p>
       </article>
       <article class="indic reveal d2" id="i-ipca">
         <p class="indic-rot">IPCA</p>
         <p class="indic-valor"><b data-campo="valor">4,58</b><span>% em 12 meses</span></p>
         <p class="indic-sub" data-campo="sub">inflação oficial acumulada</p>
-        <svg class="spark" viewBox="0 0 240 64" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="spark-box"><svg class="spark" viewBox="0 0 240 64" preserveAspectRatio="none" aria-hidden="true"></svg><i class="spark-guia" aria-hidden="true"></i><i class="spark-ponto" aria-hidden="true"></i><span class="spark-tip" role="status"></span></div>
         <p class="indic-pe" data-campo="pe">últimos 24 meses</p>
       </article>
     </div>
@@ -120,15 +120,15 @@
     <div class="titulo-secao reveal">
       <p class="rotulo">Previsão do tempo</p>
       <h2>Os próximos dias na <em>lavoura</em>.</h2>
-      <p class="texto">Temperatura e chuva prevista para os próximos cinco dias nas duas cidades, para planejar plantio, colheita e aplicação.</p>
+      <p class="texto">Temperatura e chuva prevista para os próximos cinco dias, para planejar plantio, colheita e aplicação. Toque no nome da cidade para trocar por outra da região.</p>
     </div>
     <div class="tempo-grade">
       <article class="cidade reveal" data-lat="-25.2128" data-lon="-50.9778">
-        <div class="cidade-topo"><h3>Prudentópolis</h3><p class="chuva-total"></p></div>
+        <div class="cidade-topo"><h3><select class="cidade-escolha" aria-label="Escolher a cidade da primeira previsão"><option>Prudentópolis</option></select></h3><p class="chuva-total"></p></div>
         <ol class="dias"></ol>
       </article>
       <article class="cidade reveal d1" data-lat="-25.4672" data-lon="-50.6511">
-        <div class="cidade-topo"><h3>Irati</h3><p class="chuva-total"></p></div>
+        <div class="cidade-topo"><h3><select class="cidade-escolha" aria-label="Escolher a cidade da segunda previsão"><option>Irati</option></select></h3><p class="chuva-total"></p></div>
         <ol class="dias"></ol>
       </article>
     </div>
