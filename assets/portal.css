@@ -1,0 +1,107 @@
+/* Integraliza · Painel do agro (usa as cores e componentes de site.css) */
+.pagina-portal .topo { background: rgba(10, 14, 11, .9); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-color: var(--fio-escuro); }
+.menu a[aria-current="page"] { color: var(--ouro-claro); }
+.menu a[aria-current="page"]::after { transform: scaleX(1); }
+
+/* abertura do painel */
+.portal-topo { position: relative; overflow: hidden; padding: 150px 0 72px; background: radial-gradient(70% 90% at 80% 10%, rgba(191, 153, 103, .14), transparent 60%), var(--noite); }
+.portal-curvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .28; mix-blend-mode: screen; pointer-events: none; }
+.portal-topo .wrap { position: relative; }
+.portal-topo h1 { font-size: clamp(2.7rem, 6.2vw, 5.6rem); line-height: 1.03; margin: 1.2rem 0 1.3rem; max-width: 14ch; }
+.portal-status { display: inline-flex; align-items: center; gap: .7rem; margin-top: 1.8rem; font: 400 .78rem var(--mono); letter-spacing: .05em; color: rgba(226, 201, 154, .8); }
+.portal-status i { width: 8px; height: 8px; border-radius: 50%; background: var(--ouro); box-shadow: 0 0 0 4px rgba(191, 153, 103, .16); }
+.portal-status.ok i { background: #9BC48A; box-shadow: 0 0 0 4px rgba(155, 196, 138, .16); animation: pisca 1.8s ease-in-out infinite; }
+.portal-atalhos { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2.2rem; }
+.portal-atalhos a { text-decoration: none; font-size: .86rem; font-weight: 500; color: var(--palha); padding: .55rem 1rem; border: 1px solid rgba(226, 201, 154, .32); border-radius: 999px; transition: border-color .3s, background .3s; }
+.portal-atalhos a:hover { border-color: var(--ouro); background: rgba(191, 153, 103, .1); }
+
+.fonte { margin-top: 2.2rem; font: 400 .72rem/1.6 var(--mono); letter-spacing: .03em; color: rgba(226, 201, 154, .6); max-width: 60rem; }
+.palha .fonte { color: var(--tinta-2); }
+
+/* indicadores */
+.indicadores { padding-top: clamp(3.5rem, 7vw, 6rem); }
+.indic-grade { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid rgba(226, 201, 154, .45); }
+.indic { padding: 2rem 2rem 0 0; }
+.indic + .indic { padding-left: 2rem; border-left: 1px solid var(--fio-escuro); }
+.indic-rot { font: 500 .72rem/1.4 var(--rotulo); letter-spacing: .22em; text-transform: uppercase; color: var(--ouro); }
+.indic-valor { display: flex; align-items: baseline; gap: .45rem; margin: .8rem 0 .3rem; color: var(--palha); }
+.indic-valor b { font: 400 clamp(3rem, 5.4vw, 4.6rem)/1 var(--display); letter-spacing: -.02em; }
+.indic-valor span { font-size: .95rem; color: rgba(239, 232, 219, .66); }
+.indic-valor .pre { font: 400 1.4rem var(--display); color: rgba(239, 232, 219, .8); }
+.indic-sub { font-size: .9rem; color: rgba(239, 232, 219, .62); }
+.spark { display: block; width: 100%; height: 64px; margin: 1.4rem 0 .5rem; overflow: visible; }
+.spark .linha { fill: none; stroke: var(--ouro-claro); stroke-width: 1.6; vector-effect: non-scaling-stroke; }
+.spark .area { fill: url(#grad-spark); opacity: .9; }
+.spark .ponto { fill: var(--ouro-claro); }
+.indic-pe { font: 400 .72rem var(--mono); color: rgba(226, 201, 154, .66); }
+.indic-pe b { font-weight: 500; color: var(--palha); }
+
+/* preços do campo */
+.cotacoes { border-top: 1px solid rgba(133, 101, 58, .5); }
+.cot { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr) minmax(0, .6fr) minmax(0, .6fr) minmax(0, .7fr); gap: 1rem; align-items: baseline; padding: 1.15rem 0; border-bottom: 1px solid var(--fio-claro); }
+.cot-cab { padding: .9rem 0; font: 500 .66rem/1.4 var(--rotulo); letter-spacing: .18em; text-transform: uppercase; color: var(--ouro-escuro); }
+.cot-prod b { display: block; font: 500 1.2rem/1.25 var(--display); color: var(--tinta); }
+.cot-prod span { font: 400 .74rem var(--mono); color: var(--tinta-2); }
+.cot-preco b { font: 400 1.55rem/1 var(--display); color: var(--tinta); font-variant-numeric: lining-nums tabular-nums; }
+.cot-preco span { display: block; margin-top: .25rem; font-size: .78rem; color: var(--tinta-2); }
+.var { font: 500 .86rem var(--mono); color: var(--tinta-2); }
+.var.sobe { color: #3E7A3A; }
+.var.desce { color: #A24A33; }
+.var.sobe::before { content: '▲ '; font-size: .7em; }
+.var.desce::before { content: '▼ '; font-size: .7em; }
+.cot-data { font: 400 .76rem var(--mono); color: var(--tinta-2); }
+
+/* tempo */
+.tempo-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 5vw, 5rem); }
+.cidade-topo { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; padding-bottom: 1rem; border-bottom: 1px solid rgba(226, 201, 154, .45); }
+.cidade-topo h3 { font: italic 400 clamp(2rem, 3.4vw, 2.8rem)/1.05 var(--display); color: var(--palha); }
+.chuva-total { font: 400 .76rem var(--mono); color: rgba(226, 201, 154, .75); }
+.dias li { display: grid; grid-template-columns: 4.4rem 2.4rem minmax(0, 1fr) auto; gap: 1rem; align-items: center; padding: .95rem 0; border-bottom: 1px solid var(--fio-escuro); }
+.dia-nome { font: 500 .7rem/1.3 var(--rotulo); letter-spacing: .14em; text-transform: uppercase; color: var(--ouro); }
+.dia-nome small { display: block; font: 400 .7rem var(--mono); letter-spacing: 0; text-transform: none; color: rgba(239, 232, 219, .5); }
+.dia-icone svg { width: 2.2rem; height: 2.2rem; fill: none; stroke: var(--ouro-claro); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.dia-desc { font-size: .92rem; color: rgba(239, 232, 219, .78); }
+.dia-desc small { display: block; font: 400 .72rem var(--mono); color: rgba(226, 201, 154, .7); margin-top: .15rem; }
+.dia-temp { text-align: right; font: 400 1.15rem var(--display); color: var(--palha); white-space: nowrap; }
+.dia-temp span { color: rgba(239, 232, 219, .5); font-size: .95rem; }
+
+/* notícias */
+.noticias-grade { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+.artigo { border-top: 1px solid var(--fio-claro); }
+.artigo:last-child { border-bottom: 1px solid var(--fio-claro); }
+.artigo summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1.5rem; padding: 1.5rem 0; }
+.artigo summary::-webkit-details-marker { display: none; }
+.art-meta { grid-column: 1; font: 400 .74rem var(--mono); letter-spacing: .03em; color: var(--ouro-escuro); }
+.art-titulo { grid-column: 1; margin-top: .45rem; font: 500 clamp(1.2rem, 1.8vw, 1.45rem)/1.3 var(--display); color: var(--tinta); }
+.artigo summary i { grid-column: 2; grid-row: 1 / span 2; align-self: center; position: relative; width: 2.2rem; height: 2.2rem; border: 1px solid rgba(133, 101, 58, .45); border-radius: 50%; }
+.artigo summary i::before, .artigo summary i::after { content: ''; position: absolute; left: 50%; top: 50%; width: 11px; height: 1px; background: var(--ouro-escuro); transform: translate(-50%, -50%); }
+.artigo summary i::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .35s var(--ease); }
+.artigo[open] summary i::after { transform: translate(-50%, -50%) rotate(0); }
+.art-corpo { padding: 0 3.5rem 1.8rem 0; color: var(--tinta-2); max-width: 42rem; }
+.art-corpo p + p, .art-corpo ul + p, .art-corpo p + ul { margin-top: .9rem; }
+.art-corpo ul { list-style: none; padding: 0; }
+.art-corpo li { position: relative; padding: .45rem 0 .45rem 1.4rem; }
+.art-corpo li::before { content: ''; position: absolute; left: 0; top: 1.05rem; width: 8px; height: 1px; background: var(--ouro-escuro); }
+.art-corpo b { color: var(--tinta); font-weight: 600; }
+.art-link { display: inline-flex; align-items: center; gap: .55rem; margin-top: 1.2rem; font-weight: 600; font-size: .9rem; text-decoration: none; color: var(--tinta); border-bottom: 1px solid rgba(133, 101, 58, .5); padding-bottom: .2rem; }
+.art-link svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .35s var(--ease); }
+.art-link:hover svg { transform: translateX(4px); }
+
+@media (max-width: 860px) {
+  .portal-topo { padding: 118px 0 56px; }
+  .portal-topo h1 { font-size: clamp(2.4rem, 10.5vw, 3.3rem); }
+  .indic-grade { grid-template-columns: minmax(0, 1fr); }
+  .indic, .indic + .indic { padding: 1.8rem 0 1.4rem; border-left: 0; }
+  .indic + .indic { border-top: 1px solid var(--fio-escuro); }
+  .cot-cab { display: none; }
+  .cot { grid-template-columns: minmax(0, 1fr) auto; row-gap: .5rem; }
+  .cot-prod { grid-column: 1; }
+  .cot-preco { grid-column: 2; text-align: right; }
+  .cot-vars { grid-column: 1 / -1; display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: .8rem; }
+  .tempo-grade, .noticias-grade { grid-template-columns: minmax(0, 1fr); }
+  .dias li { grid-template-columns: 3.6rem 2rem minmax(0, 1fr) auto; gap: .7rem; }
+  .art-corpo { padding-right: 0; }
+}
+@media (min-width: 861px) {
+  .cot-vars { display: contents; }
+}
