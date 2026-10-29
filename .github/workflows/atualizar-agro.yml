@@ -1,0 +1,46 @@
+# Atualiza os dados do Painel do agro (data/agro.json) todo dia e republica a página.
+# Fontes: Banco Central (SGS) e Deral/Seab-PR via Ipeadata. O robô mantém o valor anterior se uma fonte cair.
+name: Atualizar Painel do agro
+
+on:
+  schedule:
+    - cron: "0 9 * * *"   # 9h UTC = 6h em Brasília
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: atualizar-agro
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Buscar os dados
+        run: python .github/scripts/atualizar_agro.py .
+
+      - name: Gravar e republicar
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- data/agro.json; then
+            echo "nada mudou"
+            exit 0
+          fi
+          git config user.name "Painel do agro"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/agro.json
+          git commit -m "Painel do agro: dados de $(TZ=America/Sao_Paulo date +%d/%m/%Y)"
+          git push
+          # push feito com o token da própria rotina não dispara o Pages sozinho: pedir a publicação
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --silent || echo "pedido de publicação falhou; o Pages publica no próximo push"
