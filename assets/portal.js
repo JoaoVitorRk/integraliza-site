@@ -55,8 +55,8 @@
     var vazio = function (n) { return n === null || n === undefined; };
     var v = function (n) { return '<span class="var ' + (n > 0 ? 'sobe' : n < 0 ? 'desce' : '') + '">' + BR(Math.abs(n), 2) + '%</span>'; };
     box.innerHTML = lista.map(function (c) {
-      var dia = vazio(c.var_dia) ? '<span class="var">média mensal</span>' : v(c.var_dia);
-      var mes = vazio(c.var_mes) ? '' : v(c.var_mes);
+      var dia = vazio(c.var_mes) ? '' : v(c.var_mes);
+      var mes = vazio(c.var_ano) ? '' : v(c.var_ano);
       return '<div class="cot" role="row"><div class="cot-prod" role="cell"><b>' + c.produto + '</b><span>' + c.praca + '</span></div>' +
         '<div class="cot-preco" role="cell"><b>R$ ' + BR(c.valor, 2) + '</b><span>' + c.unidade.replace('R$/', 'por ') + '</span></div>' +
         '<div class="cot-vars"><span role="cell">' + dia + '</span><span role="cell">' + mes + '</span><span class="cot-data" role="cell">' + c.data + '</span></div></div>';
@@ -105,7 +105,7 @@
 
   var reserva = fetch('../data/agro.json', { cache: 'no-cache' }).then(function (r) { return r.json(); });
   reserva.then(function (j) {
-    // a seção de preços só aparece quando o arquivo traz os preços (a versão publicada vem sem eles até resolver a licença)
+    // a seção de preços só aparece quando o arquivo traz os preços (se a coleta falhar, a página segue sem ela)
     if (j.campo && j.campo.length) {
       campo(j.campo);
       document.querySelectorAll('.so-campo').forEach(function (el) { el.hidden = false; });
@@ -123,7 +123,7 @@
     var agora = new Date();
     var hora = String(agora.getHours()).padStart(2, '0') + 'h' + String(agora.getMinutes()).padStart(2, '0');
     if (r[0] && r[1]) { status.textContent = 'Dados ao vivo · atualizados hoje às ' + hora; status.parentNode.classList.add('ok'); }
-    else if (r[2]) { status.textContent = 'Dados de ' + r[2].atualizado + ' · algumas fontes estão fora do ar agora'; }
+    else if (r[2]) { status.textContent = 'Atualizado em ' + r[2].atualizado.replace(' ', ' às '); status.parentNode.classList.add('ok'); }
     else { status.textContent = 'As fontes estão fora do ar agora; tente de novo em alguns minutos'; }
   });
 })();

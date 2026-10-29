@@ -1,5 +1,5 @@
 {
- "atualizado": "29/10/2026 12:59",
+ "atualizado": "29/10/2026 13:12",
  "financeiro": {
   "selic": {
    "atual": {
@@ -458,8 +458,82 @@
    ]
   }
  },
- "campo": [],
+ "campo": [
+  {
+   "produto": "Soja",
+   "praca": "Paraná",
+   "unidade": "R$/saca 60 kg",
+   "data": "set/2026",
+   "valor": 137.77,
+   "var_mes": 8.22,
+   "var_ano": 16.14
+  },
+  {
+   "produto": "Milho",
+   "praca": "Paraná",
+   "unidade": "R$/saca 60 kg",
+   "data": "set/2026",
+   "valor": 58.21,
+   "var_mes": 1.58,
+   "var_ano": 11.63
+  },
+  {
+   "produto": "Feijão-preto",
+   "praca": "Paraná",
+   "unidade": "R$/saca 60 kg",
+   "data": "set/2026",
+   "valor": 203.39,
+   "var_mes": 8.46,
+   "var_ano": 65.53
+  },
+  {
+   "produto": "Feijão de cor",
+   "praca": "Paraná",
+   "unidade": "R$/saca 60 kg",
+   "data": "set/2026",
+   "valor": 286.82,
+   "var_mes": 11.96,
+   "var_ano": 57.1
+  },
+  {
+   "produto": "Trigo",
+   "praca": "Paraná",
+   "unidade": "R$/saca 60 kg",
+   "data": "set/2026",
+   "valor": 78.47,
+   "var_mes": 4.76,
+   "var_ano": 9.57
+  },
+  {
+   "produto": "Leite",
+   "praca": "Paraná",
+   "unidade": "R$/litro",
+   "data": "set/2026",
+   "valor": 2.83,
+   "var_mes": 1.0,
+   "var_ano": 6.43
+  },
+  {
+   "produto": "Suínos",
+   "praca": "Paraná",
+   "unidade": "R$/kg",
+   "data": "set/2026",
+   "valor": 5.17,
+   "var_mes": -2.6,
+   "var_ano": -27.83
+  },
+  {
+   "produto": "Boi gordo",
+   "praca": "Paraná",
+   "unidade": "R$/arroba",
+   "data": "set/2026",
+   "valor": 353.72,
+   "var_mes": 0.19,
+   "var_ano": 14.22
+  }
+ ],
  "fontes": {
-  "financeiro": "Banco Central do Brasil (SGS)"
+  "financeiro": "Banco Central do Brasil (SGS)",
+  "campo": "Deral/Seab-PR, preço médio recebido pelo agricultor, via Ipeadata"
  }
 }
