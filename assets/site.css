@@ -158,6 +158,21 @@ h1 em, h2 em, h3 em {
 .letreiro span { font: italic 400 clamp(1.6rem, 3vw, 2.6rem)/1.2 var(--display); color: rgba(243, 237, 226, .9); white-space: nowrap; margin-right: 2.6rem; display: inline-flex; align-items: center; gap: 2.6rem; }
 .letreiro span::after { content: ''; width: 7px; height: 7px; background: var(--ouro); transform: rotate(45deg); flex: none; }
 
+/* chamada do Painel do agro na página principal */
+.painel-chamada { background: var(--noite); padding: clamp(3rem, 6vw, 5rem) 0 clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--fio-escuro); }
+.painel-chamada-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 1.5rem clamp(2rem, 6vw, 6rem); align-items: end; }
+.painel-chamada h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin: .9rem 0 1rem; }
+.painel-chamada .texto { margin-bottom: 1.8rem; }
+.painel-mini { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-top: 1px solid rgba(226, 201, 154, .45); }
+.painel-mini > div { padding: 1.3rem 1rem 0 0; }
+.painel-mini > div + div { padding-left: 1.3rem; border-left: 1px solid var(--fio-escuro); }
+.painel-mini dt { font: 500 .66rem/1.4 var(--rotulo); letter-spacing: .18em; text-transform: uppercase; color: var(--ouro); }
+.painel-mini dd { margin: .6rem 0 0; display: flex; align-items: baseline; gap: .35rem; color: var(--palha); }
+.painel-mini b { font: 400 clamp(2rem, 3.4vw, 2.9rem)/1 var(--display); letter-spacing: -.01em; }
+.painel-mini span { font-size: .82rem; color: rgba(239, 232, 219, .62); }
+.painel-mini .pre { font: 400 1.05rem var(--display); color: rgba(239, 232, 219, .8); }
+.painel-mini-pe { grid-column: 2; font: 400 .7rem var(--mono); letter-spacing: .03em; color: rgba(226, 201, 154, .6); }
+
 /* faixas de transição: a seção seguinte começa na cor exata em que a faixa termina */
 .faixa { height: clamp(90px, 12vw, 160px); }
 .noite-palha { background: linear-gradient(180deg, var(--noite), #3A3A30 45%, var(--palha)); }
@@ -383,6 +398,13 @@ h1 em, h2 em, h3 em {
   .selo { width: 88px; height: 88px; }
   .selo img { width: 26px; }
 
+  .painel-chamada-grade { grid-template-columns: minmax(0, 1fr); }
+  .painel-mini > div { padding-right: .6rem; }
+  .painel-mini > div + div { padding-left: .8rem; }
+  .painel-mini b { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .painel-mini span { font-size: .72rem; }
+  .painel-mini dt { letter-spacing: .12em; min-height: 2.8em; }
+  .painel-mini-pe { grid-column: 1; }
   .prova .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .prova div { padding: 1.3rem 1rem 1.3rem 0; }
   .prova div + div { padding-left: 1rem; }
@@ -414,6 +436,10 @@ h1 em, h2 em, h3 em {
   .barra-cel { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; padding: .8rem var(--gutter) calc(.8rem + env(safe-area-inset-bottom)); background: linear-gradient(180deg, transparent, rgba(10, 14, 11, .92) 40%); transform: translateY(110%); transition: transform .45s var(--ease); }
   .barra-cel.visivel { transform: none; }
   .barra-cel .btn { width: 100%; justify-content: space-between; }
+}
+
+@media (max-width: 430px) {
+  .painel-mini dd span:not(.pre) { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -153,6 +153,20 @@
     if (contato) ob.observe(contato);
   }
 
+  // chamada do Painel do agro: números do dia a partir do arquivo que a rotina diária atualiza
+  var mini = document.querySelector('.painel-chamada');
+  if (mini) {
+    fetch('./data/agro.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (j) {
+      var br = function (n) { return n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+      var f = j.financeiro, d = f.dolar.historico, soja = (j.campo || []).filter(function (c) { return c.produto === 'Soja'; })[0];
+      var poe = function (k, v) { var el = mini.querySelector('[data-mini="' + k + '"]'); if (el) el.textContent = v; };
+      poe('selic', br(f.selic.atual.valor) + '%');
+      poe('dolar', br(d[d.length - 1].valor));
+      if (soja) poe('soja', br(soja.valor));
+      poe('data', 'Atualizado em ' + j.atualizado.split(' ')[0] + ' · Banco Central e Deral/Seab-PR' + (soja ? ' (soja: ' + soja.data + ')' : ''));
+    }).catch(function () {});
+  }
+
   // só uma dúvida aberta por vez
   document.querySelectorAll('.faq details').forEach(function (d) {
     d.addEventListener('toggle', function () {
