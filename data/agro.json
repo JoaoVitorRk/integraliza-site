@@ -1,9 +1,9 @@
 {
- "atualizado": "29/10/2026 17:54",
+ "atualizado": "30/10/2026 12:30",
  "financeiro": {
   "selic": {
    "atual": {
-    "data": "29/10/2026",
+    "data": "30/10/2026",
     "valor": 13.75
    },
    "historico": [
@@ -100,17 +100,13 @@
      "valor": 13.75
     },
     {
-     "data": "29/10/2026",
+     "data": "30/10/2026",
      "valor": 13.75
     }
    ]
   },
   "dolar": {
    "historico": [
-    {
-     "data": "31/07/2026",
-     "valor": 5.0773
-    },
     {
      "data": "03/08/2026",
      "valor": 5.0723
