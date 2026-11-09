@@ -1,9 +1,9 @@
 {
- "atualizado": "08/11/2026 12:45",
+ "atualizado": "09/11/2026 16:28",
  "financeiro": {
   "selic": {
    "atual": {
-    "data": "08/11/2026",
+    "data": "09/11/2026",
     "valor": 13.75
    },
    "historico": [
@@ -100,17 +100,13 @@
      "valor": 13.75
     },
     {
-     "data": "08/11/2026",
+     "data": "09/11/2026",
      "valor": 13.75
     }
    ]
   },
   "dolar": {
    "historico": [
-    {
-     "data": "10/08/2026",
-     "valor": 5.0963
-    },
     {
      "data": "11/08/2026",
      "valor": 5.1285
@@ -354,6 +350,10 @@
     {
      "data": "06/11/2026",
      "valor": 5.5013
+    },
+    {
+     "data": "09/11/2026",
+     "valor": 5.5146
     }
    ]
   },
@@ -463,73 +463,73 @@
    "produto": "Soja",
    "praca": "Paraná",
    "unidade": "R$/saca 60 kg",
-   "data": "set/2026",
-   "valor": 137.77,
-   "var_mes": 8.22,
-   "var_ano": 16.14
+   "data": "out/2026",
+   "valor": 135.53,
+   "var_mes": -1.63,
+   "var_ano": 13.56
   },
   {
    "produto": "Milho",
    "praca": "Paraná",
    "unidade": "R$/saca 60 kg",
-   "data": "set/2026",
-   "valor": 58.21,
-   "var_mes": 1.58,
-   "var_ano": 11.63
+   "data": "out/2026",
+   "valor": 52.88,
+   "var_mes": -9.16,
+   "var_ano": 0.87
   },
   {
    "produto": "Feijão-preto",
    "praca": "Paraná",
    "unidade": "R$/saca 60 kg",
-   "data": "set/2026",
-   "valor": 203.39,
-   "var_mes": 8.46,
-   "var_ano": 65.53
+   "data": "out/2026",
+   "valor": 229.45,
+   "var_mes": 12.81,
+   "var_ano": 74.25
   },
   {
    "produto": "Feijão de cor",
    "praca": "Paraná",
    "unidade": "R$/saca 60 kg",
-   "data": "set/2026",
-   "valor": 286.82,
-   "var_mes": 11.96,
-   "var_ano": 57.1
+   "data": "out/2026",
+   "valor": 302.07,
+   "var_mes": 5.32,
+   "var_ano": 57.04
   },
   {
    "produto": "Trigo",
    "praca": "Paraná",
    "unidade": "R$/saca 60 kg",
-   "data": "set/2026",
-   "valor": 78.47,
-   "var_mes": 4.76,
-   "var_ano": 9.57
+   "data": "out/2026",
+   "valor": 79.38,
+   "var_mes": 1.16,
+   "var_ano": 22.45
   },
   {
    "produto": "Leite",
    "praca": "Paraná",
    "unidade": "R$/litro",
-   "data": "set/2026",
-   "valor": 2.83,
-   "var_mes": 1.0,
-   "var_ano": 6.43
+   "data": "out/2026",
+   "valor": 2.82,
+   "var_mes": -0.39,
+   "var_ano": 12.18
   },
   {
    "produto": "Suínos",
    "praca": "Paraná",
    "unidade": "R$/kg",
-   "data": "set/2026",
-   "valor": 5.17,
-   "var_mes": -2.6,
-   "var_ano": -27.83
+   "data": "out/2026",
+   "valor": 5.53,
+   "var_mes": 6.98,
+   "var_ano": -23.4
   },
   {
    "produto": "Boi gordo",
    "praca": "Paraná",
    "unidade": "R$/arroba",
-   "data": "set/2026",
-   "valor": 353.72,
-   "var_mes": 0.19,
-   "var_ano": 14.22
+   "data": "out/2026",
+   "valor": 373.06,
+   "var_mes": 5.47,
+   "var_ano": 20.19
   }
  ],
  "fontes": {
