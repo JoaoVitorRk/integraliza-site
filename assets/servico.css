@@ -1,0 +1,54 @@
+/* Integraliza · páginas de serviço (carrega depois de site.css) */
+
+/* capa */
+.capa-servico { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: flex-end; min-height: min(88vh, 860px); padding: 150px 0 3.2rem; background: radial-gradient(70% 80% at 78% 30%, rgba(191, 153, 103, .13), transparent 70%), linear-gradient(180deg, #0D130F, var(--noite)); }
+.capa-curvas { position: absolute; z-index: -2; right: -12%; top: -14%; width: 92%; height: 128%; object-fit: cover; opacity: .34; mix-blend-mode: screen; pointer-events: none; -webkit-mask-image: linear-gradient(to left, #000 35%, transparent 92%); mask-image: linear-gradient(to left, #000 35%, transparent 92%); }
+.capa-num { position: absolute; z-index: -1; right: var(--gutter); bottom: -.14em; font: italic 400 clamp(14rem, 34vw, 30rem)/.8 var(--display); color: transparent; -webkit-text-stroke: 1px rgba(226, 201, 154, .24); letter-spacing: -.02em; pointer-events: none; user-select: none; }
+.migalhas { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .7rem; margin-bottom: 2.2rem; font: 400 .76rem/1.4 var(--mono); letter-spacing: .04em; color: rgba(239, 232, 219, .55); }
+.migalhas a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; transition: color .3s, border-color .3s; }
+.migalhas a:hover { color: var(--ouro-claro); border-color: currentColor; }
+.migalhas span { opacity: .5; }
+.migalhas b { font-weight: 400; color: var(--ouro-claro); }
+.capa-servico h1 { font-size: clamp(2.6rem, 6.2vw, 5.4rem); line-height: 1.04; max-width: 13ch; margin: 1.2rem 0 1.5rem; }
+.capa-servico .lead { font-size: clamp(1.06rem, 1.5vw, 1.24rem); line-height: 1.6; max-width: 36rem; color: rgba(239, 232, 219, .8); }
+.capa-pe { display: flex; flex-wrap: wrap; gap: 1rem 3.5rem; margin: 3rem 0 0; padding-top: 1.3rem; border-top: 1px solid var(--fio-escuro); max-width: 46rem; }
+.capa-pe dt { font: 500 .66rem/1.4 var(--rotulo); letter-spacing: .22em; text-transform: uppercase; color: var(--ouro); margin-bottom: .3rem; }
+.capa-pe dd { margin: 0; font-size: .94rem; color: rgba(239, 232, 219, .82); }
+.menu a[aria-current] { color: var(--ouro-claro); }
+
+/* o que está incluído */
+.inclui-grade { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(2rem, 6vw, 6rem); border-top: 1px solid var(--fio-claro); }
+.inclui-grade li { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: .2rem 1rem; padding: 2rem 0 2.1rem; border-bottom: 1px solid var(--fio-claro); }
+.inclui-grade span { grid-row: span 2; font: italic 400 2.5rem/1 var(--display); color: var(--ouro-escuro); }
+.inclui-grade h3 { font: 500 clamp(1.25rem, 1.9vw, 1.55rem)/1.25 var(--display); color: var(--tinta); }
+.inclui-grade p { color: var(--tinta-2); max-width: 32rem; }
+
+/* quando procurar */
+.quando-grade { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+.quando .titulo-secao { margin-bottom: 0; }
+.quando h2 { font-size: clamp(2.1rem, 4.4vw, 3.6rem); }
+.quando-lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--fio-escuro); }
+.quando-lista li { position: relative; padding: 1.25rem 0 1.25rem 2.6rem; border-bottom: 1px solid var(--fio-escuro); font: 400 clamp(1.08rem, 1.5vw, 1.28rem)/1.45 var(--display); color: var(--palha); }
+.quando-lista li::before { content: ''; position: absolute; left: 0; top: 2.05rem; width: 1.5rem; height: 1px; background: var(--ouro); }
+.fala { margin: 2.6rem 0 0; padding: 1.8rem 0 0 2.6rem; position: relative; }
+.fala::before { content: '\201C'; position: absolute; left: -.1rem; top: .7rem; font: italic 400 4.2rem/1 var(--display); color: var(--ouro); }
+.fala p { font: italic 400 clamp(1.12rem, 1.6vw, 1.36rem)/1.55 var(--display); color: rgba(239, 232, 219, .9); max-width: 34rem; }
+.fala footer { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .3rem .9rem; align-items: baseline; font-size: .9rem; }
+.fala footer b { font-weight: 500; color: var(--ouro-claro); }
+.fala footer span { color: rgba(239, 232, 219, .6); }
+
+/* todos os serviços: o serviço aberto fica marcado */
+.outros .lista-servicos a[aria-current] b { color: var(--ouro-claro); }
+.outros .lista-servicos a[aria-current]::before { opacity: 1; }
+.outros .lista-servicos a[aria-current] { padding-left: .8rem; }
+
+@media (max-width: 900px) {
+  .capa-servico { min-height: 0; padding: 124px 0 2.6rem; }
+  .capa-curvas { right: -40%; width: 150%; opacity: .26; }
+  .capa-num { font-size: clamp(11rem, 58vw, 18rem); bottom: auto; top: 76px; right: -.06em; -webkit-text-stroke-color: rgba(226, 201, 154, .16); }
+  .inclui-grade, .quando-grade { grid-template-columns: minmax(0, 1fr); }
+  .quando .titulo-secao { margin-bottom: 1rem; }
+  .inclui-grade li { grid-template-columns: 3.2rem minmax(0, 1fr); padding: 1.6rem 0 1.7rem; }
+  .inclui-grade span { font-size: 2rem; }
+  .capa-pe { gap: 1rem 2rem; }
+}
