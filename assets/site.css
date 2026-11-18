@@ -441,16 +441,17 @@ h1 em, h2 em, h3 em {
   .grao { animation: none; }
 }
 
-/* fundo das dobras escuras: luz suave e curvas de nível no lugar do preto chapado */
+/* fundo das dobras escuras: luz suave no lugar do preto chapado */
 .noite, .painel-chamada { background: radial-gradient(70% 34% at 84% 38%, rgba(191, 153, 103, .1), transparent 100%), radial-gradient(60% 36% at 6% 62%, rgba(86, 122, 92, .2), transparent 100%), var(--noite); }
 .mata { background: radial-gradient(70% 34% at 14% 36%, rgba(191, 153, 103, .08), transparent 100%), radial-gradient(60% 36% at 94% 64%, rgba(96, 134, 102, .2), transparent 100%), var(--mata); }
-.bloco.noite, .bloco.mata, .painel-chamada { isolation: isolate; }
-.bloco.noite::after, .bloco.mata::after, .painel-chamada::after { content: ''; position: absolute; z-index: -1; pointer-events: none; width: min(920px, 150vw); aspect-ratio: 1; right: max(-300px, -30vw); top: 50%; translate: 0 -50%; background: url(img/curvas-fundo.svg) center / contain no-repeat; opacity: .5; }
-.servicos::after, .unidades::after { right: auto; left: max(-340px, -34vw); }
-.servicos::after { top: auto; bottom: -260px; translate: none; }
-.quem::after { top: 34%; }
-.painel-chamada::after { right: auto; left: max(-420px, -40vw); top: 64%; opacity: .34; }
-.agrimensura::after, .contato::after { content: none; }
+/* em cada dobra escura, uma cena do campo escurecida, no mesmo jeito da dobra de contato */
+.painel-chamada, .servicos, .quem, .unidades, .quando { isolation: isolate; }
+.painel-chamada::after, .servicos::after, .quem::after, .unidades::after, .quando::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, var(--base) 0%, rgb(var(--rgb) / var(--veu)) 26%, rgb(var(--rgb) / var(--veu)) 74%, var(--base) 100%), radial-gradient(80% 90% at 50% 50%, rgb(var(--rgb) / 0), rgb(var(--rgb) / .55) 100%), var(--foto) center / cover no-repeat; }
+.painel-chamada::after { --foto: url(img/fundo-soja.webp); --base: var(--noite); --rgb: 19 26 22; --veu: .7; }
+.servicos::after { --foto: url(img/fundo-talhoes.webp); --base: var(--mata); --rgb: 26 38 31; --veu: .8; }
+.quem::after { --foto: url(img/fundo-leite.webp); --base: var(--noite); --rgb: 19 26 22; --veu: .74; }
+.unidades::after { --foto: url(img/fundo-silos.webp); --base: var(--mata); --rgb: 26 38 31; --veu: .74; }
+.quando::after { --foto: url(img/fundo-trigo.webp); --base: var(--mata); --rgb: 26 38 31; --veu: .78; }
 
 /* chamada do painel: o traço do dólar dos últimos 30 dias, desenhado com os dados do dia */
 .painel-lado { min-width: 0; }
@@ -462,8 +463,5 @@ h1 em, h2 em, h3 em {
 .painel-traco figcaption { position: absolute; left: 0; top: -.2rem; font: 400 .66rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgba(239, 232, 219, .55); }
 
 @media (max-width: 760px) {
-  .bloco.noite::after, .bloco.mata::after, .painel-chamada::after { opacity: .3; width: 150vw; right: -62vw; }
-  .servicos::after, .unidades::after { right: auto; left: -62vw; }
-  .painel-chamada::after { right: auto; left: -70vw; opacity: .24; }
   .painel-traco { margin-top: .6rem; }
 }
