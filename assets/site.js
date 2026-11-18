@@ -163,6 +163,13 @@
       poe('selic', br(f.selic.atual.valor) + '%');
       poe('dolar', br(d[d.length - 1].valor));
       if (soja) poe('soja', br(soja.valor));
+      var traco = mini.querySelector('.painel-traco svg'), p = d.slice(-30).map(function (x) { return x.valor; });
+      if (traco && p.length > 5) {
+        var mn = Math.min.apply(null, p), am = (Math.max.apply(null, p) - mn) || 1;
+        var pts = p.map(function (v, i) { return (i / (p.length - 1) * 600).toFixed(1) + ',' + (132 - (v - mn) / am * 104).toFixed(1); }).join('L');
+        traco.querySelector('.linha').setAttribute('d', 'M' + pts);
+        traco.querySelector('.area').setAttribute('d', 'M' + pts + 'L600,150L0,150Z');
+      }
       poe('data', 'Atualizado em ' + j.atualizado.split(' ')[0] + ' · Banco Central e Deral/Seab-PR' + (soja ? ' (soja: ' + soja.data + ')' : ''));
     }).catch(function () {});
   }
