@@ -1,9 +1,9 @@
 {
- "atualizado": "19/11/2026 14:57",
+ "atualizado": "20/11/2026 14:31",
  "financeiro": {
   "selic": {
    "atual": {
-    "data": "19/11/2026",
+    "data": "20/11/2026",
     "valor": 13.75
    },
    "historico": [
@@ -100,17 +100,13 @@
      "valor": 13.75
     },
     {
-     "data": "19/11/2026",
+     "data": "20/11/2026",
      "valor": 13.75
     }
    ]
   },
   "dolar": {
    "historico": [
-    {
-     "data": "21/08/2026",
-     "valor": 5.1625
-    },
     {
      "data": "24/08/2026",
      "valor": 5.1512
