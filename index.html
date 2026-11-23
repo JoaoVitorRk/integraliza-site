@@ -15,22 +15,23 @@
 <meta property="og:image" content="https://integraliza.rkperformance.com.br/assets/img/og.jpg">
 <meta property="og:url" content="https://integraliza.rkperformance.com.br/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0A0E0B">
+<meta name="theme-color" content="#131A16">
 <link rel="icon" href="./assets/img/favicon.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cinzel:wght@500;600&family=Manrope:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="./assets/site.css">
+<link rel="preload" href="./assets/fonts/playfair-display-400-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/playfair-display-400-500-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/manrope-400-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./assets/site.css?v=2">
 <script>document.documentElement.classList.replace('no-js','js');try{if(sessionStorage.getItem('integraliza-intro')==='1')document.documentElement.classList.add('sem-intro')}catch(e){}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AccountingService","name":"Integraliza Contabilidade e Agrimensura","legalName":"Integraliza Contabilidade e Agrimensura Ltda","telephone":"+55 42 99812-8870","foundingDate":"2018-11-20","sameAs":["https://www.instagram.com/integraliza.contabilidade/","https://www.facebook.com/integraliza.assessoria/"],"location":[{"@type":"Place","name":"Integraliza Prudentópolis","address":{"@type":"PostalAddress","streetAddress":"Rua Coronel João Pedro Martins, 1921, Sala 1","addressLocality":"Prudentópolis","addressRegion":"PR","postalCode":"84400-000","addressCountry":"BR"}},{"@type":"Place","name":"Integraliza Irati","address":{"@type":"PostalAddress","streetAddress":"Rua Piarina Nadal, 60, Sala B, Canisianas","addressLocality":"Irati","addressRegion":"PR","postalCode":"84500-242","addressCountry":"BR"}}]}</script>
 </head>
 <body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <div class="grao" aria-hidden="true"></div>
-<div class="intro" aria-hidden="true"><div><img src="./assets/img/logo.png" alt=""><i></i></div></div>
+<div class="intro" aria-hidden="true"><div><img src="./assets/img/logo.webp" alt="" width="800" height="227"><i></i></div></div>
 
 <header class="topo">
   <div class="wrap">
-    <a class="logo" href="#inicio" aria-label="Integraliza Contabilidade e Agrimensura, início"><img src="./assets/img/logo.png" alt="Integraliza Contabilidade e Agrimensura" width="1144" height="324"></a>
+    <a class="logo" href="#inicio" aria-label="Integraliza Contabilidade e Agrimensura, início"><img src="./assets/img/logo.webp" alt="Integraliza Contabilidade e Agrimensura" width="800" height="227"></a>
     <nav class="menu" aria-label="Seções">
       <a href="#servicos">Serviços</a>
       <a href="#agrimensura">Agrimensura</a>
@@ -53,17 +54,19 @@
   <a class="btn btn-ouro" href="https://wa.me/5542998128870" data-msg="Olá! Gostaria de falar com a Integraliza sobre os serviços de contabilidade." target="_blank" rel="noopener">Falar no WhatsApp<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
 </nav>
 
-<main>
+<main id="conteudo">
 <section class="hero" id="inicio">
   <div class="hero-foto">
     <picture>
+      <source media="(max-width: 760px)" srcset="./assets/img/hero-celular.avif" type="image/avif">
       <source media="(max-width: 760px)" srcset="./assets/img/hero-celular.webp" type="image/webp">
       <source media="(max-width: 760px)" srcset="./assets/img/hero-celular.jpg">
+      <source srcset="./assets/img/hero-2560.avif 2560w, ./assets/img/hero-1600.avif 1600w" sizes="100vw" type="image/avif">
       <source srcset="./assets/img/hero-2560.webp 2560w, ./assets/img/hero-1600.webp 1600w" sizes="100vw" type="image/webp">
-      <img src="./assets/img/hero-2560.jpg" srcset="./assets/img/hero-2560.jpg 2560w, ./assets/img/hero-1600.jpg 1600w" sizes="100vw" alt="Vista aérea de lavouras plantadas em curva de nível entre araucárias, com uma estrada de terra e neblina nos vales ao nascer do sol" fetchpriority="high">
+      <img src="./assets/img/hero-2560.jpg" srcset="./assets/img/hero-2560.jpg 2560w, ./assets/img/hero-1600.jpg 1600w" sizes="100vw" alt="Vista aérea de lavouras plantadas em curva de nível entre araucárias, com uma estrada de terra e neblina nos vales ao nascer do sol" width="2560" height="1448" fetchpriority="high" onload="this.classList.add('ok')">
     </picture>
   </div>
-  <img class="hero-curvas" src="./assets/img/curvas-hero.svg" alt="" aria-hidden="true">
+  <img class="hero-curvas" src="./assets/img/curvas-hero.svg" alt="" aria-hidden="true" fetchpriority="low" decoding="async">
   <div class="hero-veu"></div>
   <div class="wrap hero-conteudo">
     <h1>Ao lado de quem faz o campo <em>crescer</em>.</h1>
@@ -74,10 +77,10 @@
     </div>
   </div>
   <div class="wrap hero-pe">
-    <p class="coordenadas"><span>25°12′ S · 50°58′ O <b>Prudentópolis</b></span><span>25°28′ S · 50°39′ O <b>Irati</b></span></p>
+    <p class="coordenadas"><span><i>25°12′ S · 50°58′ O</i><b>Prudentópolis</b></span><span><i>25°28′ S · 50°39′ O</i><b>Irati</b></span></p>
     <div class="selo" aria-hidden="true">
       <svg viewBox="0 0 120 120"><defs><path id="selo-a" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#selo-a" textLength="286" lengthAdjust="spacing">contabilidade · agrimensura · desde 2018 · </textPath></text></svg>
-      <img src="./assets/img/caduceu.png" alt="">
+      <img src="./assets/img/caduceu.webp" alt="" width="207" height="240">
     </div>
   </div>
 </section>
@@ -217,8 +220,8 @@
 <section class="bloco noite quem" id="quem-somos">
   <div class="wrap quem-grade">
     <div class="retratos reveal">
-      <figure class="oval oval-grande" data-parallax="-0.03"><picture><source srcset="./assets/img/beatriz.webp" type="image/webp"><img src="./assets/img/beatriz.jpg" alt="Maria Beatriz Petroski Bonetti, contadora e sócia da Integraliza" width="711" height="831" loading="lazy"></picture></figure>
-      <figure class="oval oval-pequena" data-parallax="0.06"><picture><source srcset="./assets/img/jackson.webp" type="image/webp"><img src="./assets/img/jackson.jpg" alt="Jackson Ramos Bonetti, técnico em agropecuária e sócio da Integraliza, numa propriedade rural" width="711" height="834" loading="lazy"></picture></figure>
+      <figure class="oval oval-grande" data-parallax="-0.03"><picture><source srcset="./assets/img/beatriz.webp" type="image/webp"><img src="./assets/img/beatriz.jpg" alt="Maria Beatriz Petroski Bonetti, contadora e sócia da Integraliza" width="711" height="831" loading="lazy" decoding="async"></picture></figure>
+      <figure class="oval oval-pequena" data-parallax="0.06"><picture><source srcset="./assets/img/jackson.webp" type="image/webp"><img src="./assets/img/jackson.jpg" alt="Jackson Ramos Bonetti, técnico em agropecuária e sócio da Integraliza, numa propriedade rural" width="711" height="834" loading="lazy" decoding="async"></picture></figure>
     </div>
     <div class="quem-texto">
       <div class="reveal">
@@ -244,7 +247,7 @@
     </div>
     <figure class="equipe-foto reveal d1">
       <span class="canto c1"></span><span class="canto c2"></span><span class="canto c3"></span><span class="canto c4"></span>
-      <picture><source srcset="./assets/img/equipe-1600.webp 1600w, ./assets/img/equipe-900.webp 900w" sizes="(max-width: 860px) 92vw, 44rem" type="image/webp"><img src="./assets/img/equipe-1600.jpg" srcset="./assets/img/equipe-1600.jpg 1600w, ./assets/img/equipe-900.jpg 900w" sizes="(max-width: 860px) 92vw, 44rem" alt="Equipe da Integraliza reunida, com camisetas da campanha Outubro Rosa" width="1600" height="1436" loading="lazy"></picture>
+      <picture><source srcset="./assets/img/equipe-1600.webp 1600w, ./assets/img/equipe-900.webp 900w" sizes="(max-width: 860px) 92vw, 44rem" type="image/webp"><img src="./assets/img/equipe-1600.jpg" srcset="./assets/img/equipe-1600.jpg 1600w, ./assets/img/equipe-900.jpg 900w" sizes="(max-width: 860px) 92vw, 44rem" alt="Equipe da Integraliza reunida, com camisetas da campanha Outubro Rosa" width="1600" height="1436" loading="lazy" decoding="async"></picture>
       <figcaption>Equipe Integraliza · Outubro Rosa 2026</figcaption>
     </figure>
   </div>
@@ -298,9 +301,9 @@
 <div class="faixa palha-noite"></div>
 
 <section class="bloco noite contato" id="contato">
-  <div class="contato-foto" aria-hidden="true"><picture><source srcset="./assets/img/hero-1600.webp" type="image/webp"><img src="./assets/img/hero-1600.jpg" alt="" loading="lazy"></picture></div>
+  <div class="contato-foto" aria-hidden="true"><picture><source media="(max-width: 760px)" srcset="./assets/img/hero-celular.avif" type="image/avif"><source media="(max-width: 760px)" srcset="./assets/img/hero-celular.webp" type="image/webp"><source srcset="./assets/img/hero-2560.avif 2560w, ./assets/img/hero-1600.avif 1600w" sizes="100vw" type="image/avif"><source srcset="./assets/img/hero-2560.webp 2560w, ./assets/img/hero-1600.webp 1600w" sizes="100vw" type="image/webp"><img src="./assets/img/hero-1600.jpg" alt="" loading="lazy" decoding="async"></picture></div>
   <div class="wrap contato-conteudo reveal">
-    <img class="contato-cad" src="./assets/img/caduceu.png" alt="" aria-hidden="true">
+    <img class="contato-cad" src="./assets/img/caduceu.webp" alt="" aria-hidden="true" width="207" height="240" loading="lazy" decoding="async">
     <h2>Vamos conversar sobre a sua <em>atividade</em>?</h2>
     <p class="texto">Conte o que você produz ou como é a sua empresa. A nossa equipe responde pelo WhatsApp.</p>
     <a class="btn btn-ouro" href="https://wa.me/5542998128870" data-msg="Olá! Gostaria de falar com a Integraliza sobre os serviços de contabilidade." target="_blank" rel="noopener">Falar no WhatsApp<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
@@ -311,7 +314,7 @@
 
 <footer class="rodape">
   <div class="wrap rodape-grade">
-    <div class="rodape-marca"><img src="./assets/img/logo.png" alt="Integraliza Contabilidade e Agrimensura" width="1144" height="324" loading="lazy"><p>Ao lado de quem faz o campo crescer.</p></div>
+    <div class="rodape-marca"><img src="./assets/img/logo.webp" alt="Integraliza Contabilidade e Agrimensura" width="800" height="227" loading="lazy"><p>Ao lado de quem faz o campo crescer.</p></div>
     <div><h4>Prudentópolis · Matriz</h4><p>Rua Coronel João Pedro Martins, 1921, Sala 1, Centro<br>CNPJ 32.059.855/0001-84</p></div>
     <div><h4>Irati</h4><p>Rua Piarina Nadal, 60, Sala B, Canisianas<br>CNPJ 32.059.855/0002-65</p></div>
     <div><h4>Responsável técnica</h4><p>Maria Beatriz Petroski Bonetti<br>Contadora · CRC PR-067574/O-0</p></div>
@@ -321,6 +324,6 @@
 
 <div class="barra-cel" aria-hidden="true"><a class="btn btn-ouro" href="https://wa.me/5542998128870" data-msg="Olá! Gostaria de falar com a Integraliza sobre os serviços de contabilidade." target="_blank" rel="noopener" tabindex="-1">Falar no WhatsApp<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a></div>
 
-<script src="./assets/site.js" defer></script>
+<script src="./assets/site.js?v=2" defer></script>
 </body>
 </html>

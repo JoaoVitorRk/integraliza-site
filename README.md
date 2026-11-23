@@ -25,6 +25,17 @@ python -m http.server 8799 --directory clientes/integraliza-contabilidade/site
 
 Robô à mão: `python -I .github/scripts/atualizar_agro.py .` dentro desta pasta.
 
+## Carregamento e acabamento (23/11/2026)
+
+- **Fontes dentro do site:** `assets/fonts/` tem os seis arquivos woff2 (recorte latino do Google Fonts) e o `@font-face` fica no topo do `site.css`. Nenhuma página pede mais nada ao Google. As três do topo da tela (Playfair normal, Playfair itálica e Manrope) têm `preload` no `<head>`.
+- **Versão no endereço:** as páginas chamam `site.css?v=2` e `site.js?v=2`. Mudou o CSS ou o JS junto com o HTML: subir o número nas 12 páginas (página principal, painel e o modelo `03-materiais/_ferramentas/gerar_paginas_servico.py`). Sem isso, quem tem o arquivo antigo guardado vê a página nova com estilo velho por até 10 minutos.
+- **Capa em AVIF**, com WebP e JPG de reserva dentro do `<picture>`. As três vêm do original `03-materiais/imagens-ia/hero-campo-2k.png` (qualidade 55; o recorte do celular começa em x = 1040). Enquanto a foto não chega, o `.hero-foto` mostra uma miniatura borrada embutida no CSS e a foto entra em fade (`onload` no próprio `<img>`).
+- **Logo e símbolo em WebP** (`logo.webp`, 800 px, e `caduceu.webp`). Os PNG continuam na pasta como original.
+- **Fotos de fundo das dobras escuras sob demanda:** o `site.js` põe `.foto-pre` na dobra quando ela chega a 700 px da tela (aí o CSS define a foto) e `.foto-on` quando a foto termina de carregar (fade). Sem JS, o CSS carrega direto (`.no-js`). Dobra nova com foto: acrescentar a classe nas listas do `site.css` e do `site.js`.
+- **Grão:** animado só em aparelho com mouse; em tela de toque fica parado e do tamanho da tela.
+- **Acabamento:** seção atual marcada no menu, dúvidas que abrem com movimento, menu do celular em sequência, coordenadas da capa sem quebra no celular, cores da marca na seleção de texto e na barra de rolagem, atalho "Pular para o conteúdo" e respeito a "reduzir movimento".
+- **Medido no navegador interno, sem nada em cache:** a página principal caiu de cerca de 940 KB para cerca de 540 KB na primeira abertura (computador e celular), sem pedido a outros servidores.
+
 ## Antes do domínio definitivo
 
 - `og:image`, `og:url` e `canonical` com o domínio final.

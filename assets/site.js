@@ -73,29 +73,41 @@
     ioLeitura.observe(leitura);
   }
 
-  // letreiro movido por JS (não depende de @keyframes nem de "reduzir movimento")
-  document.querySelectorAll('.letreiro').forEach(function (box) {
-    var faixa = box.querySelector('.letreiro-faixa');
-    if (!faixa) return;
-    var base = faixa.innerHTML;
-    faixa.innerHTML = base + base + base;
-    var x = 0, ultimo = null, terco = 0;
-    function mede() { terco = faixa.scrollWidth / 3; }
-    mede();
-    window.addEventListener('resize', mede);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(mede);
-    function anda(t) {
-      if (ultimo !== null) {
-        var dt = Math.min(50, t - ultimo) / 1000;
-        x -= 38 * dt;
-        if (-x >= terco) x += terco;
-        faixa.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
-      }
-      ultimo = t;
-      requestAnimationFrame(anda);
-    }
-    requestAnimationFrame(anda);
-  });
+  // fotos de fundo das dobras escuras: só são pedidas quando a dobra chega perto da tela e entram em fade quando terminam de carregar
+  var folha = document.querySelector('link[rel="stylesheet"][href*="site.css"]');
+  var ioFoto = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var sec = e.target;
+      ioFoto.unobserve(sec);
+      sec.classList.add('foto-pre');
+      var m = /url\(["']?([^"')]+)/.exec(getComputedStyle(sec, '::after').getPropertyValue('--foto'));
+      var mostra = function () { sec.classList.add('foto-on'); };
+      if (!m || !folha) { mostra(); return; }
+      var im = new Image();
+      im.onload = im.onerror = mostra;
+      im.src = new URL(m[1], folha.href).href;
+    });
+  }, { rootMargin: '700px 0px' });
+  document.querySelectorAll('.painel-chamada, .servicos, .quem, .unidades, .quando').forEach(function (sec) { ioFoto.observe(sec); });
+
+  // menu do computador: marca a seção que está na tela
+  var elos = {};
+  document.querySelectorAll('.menu a[href^="#"]').forEach(function (a) { elos[a.getAttribute('href').slice(1)] = a; });
+  if (Object.keys(elos).length) {
+    var ioMenu = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var a = elos[e.target.id];
+        if (e.isIntersecting) {
+          Object.keys(elos).forEach(function (k) { elos[k].removeAttribute('aria-current'); });
+          a.setAttribute('aria-current', 'true');
+        } else if (a.getAttribute('aria-current')) {
+          a.removeAttribute('aria-current');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(elos).forEach(function (id) { var s = document.getElementById(id); if (s) ioMenu.observe(s); });
+  }
 
   // parallax leve, só no computador e só sem "reduzir movimento"
   var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

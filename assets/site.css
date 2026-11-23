@@ -1,4 +1,13 @@
 /* Integraliza Contabilidade e Agrimensura · prévia RK Performance */
+
+/* fontes servidas pelo próprio site (recorte latino do Google Fonts): sem pedido a outro servidor antes de pintar a página */
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400 500; font-display: swap; src: url(fonts/playfair-display-400-500.woff2) format('woff2'); }
+@font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 400 500; font-display: swap; src: url(fonts/playfair-display-400-500-italic.woff2) format('woff2'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 600; font-display: swap; src: url(fonts/manrope-400-600.woff2) format('woff2'); }
+@font-face { font-family: 'Cinzel'; font-style: normal; font-weight: 500 600; font-display: swap; src: url(fonts/cinzel-500-600.woff2) format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/ibm-plex-mono-400.woff2) format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/ibm-plex-mono-500.woff2) format('woff2'); }
+
 :root {
   --noite: #131A16;
   --mata: #1A261F;
@@ -447,11 +456,19 @@ h1 em, h2 em, h3 em {
 /* em cada dobra escura, uma cena do campo escurecida, no mesmo jeito da dobra de contato */
 .painel-chamada, .servicos, .quem, .unidades, .quando { isolation: isolate; }
 .painel-chamada::after, .servicos::after, .quem::after, .unidades::after, .quando::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, var(--base) 0%, rgb(var(--rgb) / var(--veu)) 26%, rgb(var(--rgb) / var(--veu)) 74%, var(--base) 100%), radial-gradient(80% 90% at 50% 50%, rgb(var(--rgb) / 0), rgb(var(--rgb) / .55) 100%), var(--foto) center / cover no-repeat; }
-.painel-chamada::after { --foto: url(img/fundo-soja.webp); --base: var(--noite); --rgb: 19 26 22; --veu: .7; }
-.servicos::after { --foto: url(img/fundo-talhoes.webp); --base: var(--mata); --rgb: 26 38 31; --veu: .8; }
-.quem::after { --foto: url(img/fundo-leite.webp); --base: var(--noite); --rgb: 19 26 22; --veu: .74; }
-.unidades::after { --foto: url(img/fundo-silos.webp); --base: var(--mata); --rgb: 26 38 31; --veu: .74; }
-.quando::after { --foto: url(img/fundo-trigo.webp); --base: var(--mata); --rgb: 26 38 31; --veu: .78; }
+.painel-chamada::after { --foto: none; --base: var(--noite); --rgb: 19 26 22; --veu: .7; }
+.servicos::after { --foto: none; --base: var(--mata); --rgb: 26 38 31; --veu: .8; }
+.quem::after { --foto: none; --base: var(--noite); --rgb: 19 26 22; --veu: .74; }
+.unidades::after { --foto: none; --base: var(--mata); --rgb: 26 38 31; --veu: .74; }
+.quando::after { --foto: none; --base: var(--mata); --rgb: 26 38 31; --veu: .78; }
+/* a foto de cada dobra só é pedida quando a dobra chega perto da tela (o site.js põe .foto-pre) e aparece em fade quando termina de carregar (.foto-on); sem JS, carrega direto */
+.no-js .painel-chamada::after, .painel-chamada.foto-pre::after { --foto: url(img/fundo-soja.webp); }
+.no-js .servicos::after, .servicos.foto-pre::after { --foto: url(img/fundo-talhoes.webp); }
+.no-js .quem::after, .quem.foto-pre::after { --foto: url(img/fundo-leite.webp); }
+.no-js .unidades::after, .unidades.foto-pre::after { --foto: url(img/fundo-silos.webp); }
+.no-js .quando::after, .quando.foto-pre::after { --foto: url(img/fundo-trigo.webp); }
+.js .painel-chamada::after, .js .servicos::after, .js .quem::after, .js .unidades::after, .js .quando::after { opacity: 0; transition: opacity 1.4s var(--ease); }
+.js .foto-on::after { opacity: 1; }
 
 /* chamada do painel: o traço do dólar dos últimos 30 dias, desenhado com os dados do dia */
 .painel-lado { min-width: 0; }
@@ -464,4 +481,87 @@ h1 em, h2 em, h3 em {
 
 @media (max-width: 760px) {
   .painel-traco { margin-top: .6rem; }
+}
+
+/* ---------- acabamento (23/11/2026) ---------- */
+
+/* capa: enquanto a foto não chega, uma miniatura borrada dela ocupa o lugar; a foto entra em fade */
+.hero-foto { background: url("data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQBQCdASogABIAPt1YqE8opKOmsBgIARAbiWIAuEH/4F4HSCpTgPjCIm4Zxg1LvlwgAP7valXBBLW2NvZDvumYG7s0kHw+Xlcx1luAJ+nzEt70lvtm2Y0intvqcrU6IOZDaS2k1+3znai33PT8pj7jsvJLEEGE15iK1ZTVzsaJTb0vAGhycUAvJRBr0JAA") 60% 50% / cover no-repeat var(--noite); }
+.js .hero-foto img { opacity: 0; transition: opacity .9s ease; }
+.js .hero-foto img.ok { opacity: 1; }
+@media (max-width: 760px) {
+  .hero-foto { background-image: url("data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAADwBQCdASoSACAAPt1mp1AopaMiqAqpEBuJYgCdMtPtKKrz+AB6PJdzto66zsNdrmA4l4avyyFCEAD929+O1zhGLL5LFLWtDdk7VUZY0Mu4jk7mDy1MtEc5iyY0NjmPXhlz3pnHR+RWyknPbUlcdJxLemR4G7oL7c/uPXsadOS9COyf3ESbFYShAysgpN4+PYrm9oNiMHGPj4z898ZWHJ/gog2b0BlukHEWBDBm/REsmGk//tlD/O5e4AA="); background-position: 50% 50%; }
+}
+
+/* coordenadas da capa: no celular a cidade fica em cima e a coordenada embaixo, sem quebrar no meio */
+.coordenadas i { font-style: normal; }
+@media (max-width: 860px) {
+  .coordenadas { gap: .7rem; }
+  .coordenadas span { display: grid; grid-template-columns: 9px minmax(0, 1fr); gap: .15rem .6rem; align-items: center; }
+  .coordenadas span::before { grid-area: 1 / 1; }
+  .coordenadas b { grid-area: 1 / 2; }
+  .coordenadas i { grid-area: 2 / 2; white-space: nowrap; }
+}
+
+/* seleção de texto, barra de rolagem e toque nas cores da marca */
+::selection { background: rgba(191, 153, 103, .36); color: var(--palha); }
+.palha ::selection { background: rgba(133, 101, 58, .28); color: var(--tinta); }
+html { scrollbar-color: var(--ouro-escuro) var(--noite); scroll-padding-top: 76px; }
+a, button, summary { -webkit-tap-highlight-color: transparent; }
+
+/* títulos sem palavra sozinha na última linha */
+h2, h3, blockquote { text-wrap: balance; }
+p, li, dd, figcaption { text-wrap: pretty; }
+
+/* atalho de teclado para pular o menu */
+.pular { position: fixed; left: var(--gutter); top: .8rem; z-index: 120; padding: .7rem 1.1rem; border-radius: 999px; background: var(--palha); color: var(--tinta); font: 600 .88rem/1.2 var(--texto); text-decoration: none; transform: translateY(-220%); transition: transform .3s var(--ease); }
+.pular:focus-visible { transform: none; }
+
+/* menu: a seção em que a pessoa está fica marcada */
+.menu a[aria-current="true"] { color: var(--palha); }
+.menu a[aria-current="true"]::after { transform: scaleX(1); }
+
+/* botões e links: resposta ao clique e ao passar o mouse */
+.btn:active { transform: translateY(0) scale(.985); transition-duration: .12s; }
+.momentos-lista a, .unidade a { transition: border-color .35s, color .35s; }
+.momentos-lista a:hover { border-bottom-color: var(--ouro-escuro); color: var(--ouro-escuro); }
+.unidade a:hover { border-bottom-color: var(--ouro-claro); color: var(--ouro-claro); }
+.contato-linha a, .rodape a { transition: color .3s; }
+.painel-mini b, .prova b { font-variant-numeric: lining-nums tabular-nums; }
+
+/* dúvidas: a resposta abre com movimento em vez de aparecer de uma vez */
+.faq details[open] p { animation: faq-abre .5s var(--ease) both; }
+@keyframes faq-abre { from { opacity: 0; transform: translateY(-6px); } }
+@supports (interpolate-size: allow-keywords) {
+  .faq { interpolate-size: allow-keywords; }
+  .faq details::details-content { block-size: 0; overflow: clip; transition: block-size .45s var(--ease), content-visibility .45s allow-discrete; }
+  .faq details[open]::details-content { block-size: auto; }
+}
+.faq summary:hover i { background: rgba(191, 153, 103, .14); }
+
+/* menu do celular: abre em fade, com os itens entrando em sequência */
+@media (max-width: 860px) {
+  .menu-cel { animation: menu-abre .35s var(--ease) both; }
+  .menu-cel a { animation: menu-item .5s var(--ease) both; }
+  .menu-cel a:nth-child(2) { animation-delay: .04s; }
+  .menu-cel a:nth-child(3) { animation-delay: .08s; }
+  .menu-cel a:nth-child(4) { animation-delay: .12s; }
+  .menu-cel a:nth-child(5) { animation-delay: .16s; }
+  .menu-cel a:nth-child(6) { animation-delay: .2s; }
+  .menu-cel a:nth-child(7) { animation-delay: .26s; }
+}
+@keyframes menu-abre { from { opacity: 0; } }
+@keyframes menu-item { from { opacity: 0; transform: translateY(12px); } }
+
+/* celular e tablet: o grão fica parado e do tamanho da tela (animado, ele redesenha a tela inteira o tempo todo e gasta bateria) */
+@media (hover: none), (pointer: coarse) {
+  .grao { inset: 0; animation: none; }
+}
+
+/* quem pede menos movimento no aparelho: sem rolagem animada, sem deslocamento na entrada e sem giro */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal, .js .hero .rotulo, .js .hero h1, .js .hero .lead, .js .hero-acoes, .js .hero-pe { transform: none; transition-duration: .4s; }
+  .selo svg, .leitura-topo i { animation: none; }
+  .menu-cel, .menu-cel a, .faq details[open] p { animation: none; }
 }
